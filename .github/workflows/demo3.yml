@@ -1,0 +1,9 @@
+name: demo3
+on:
+  workflow_dispatch:
+jobs:
+  demo3:
+    runs-on: macos-latest-large
+    steps:
+      - name: Greet
+        run: echo "Hello world!"
