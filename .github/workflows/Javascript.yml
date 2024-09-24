@@ -1,0 +1,21 @@
+name: Hello World Javascript Action
+on:
+  workflow_dispatch:
+    inputs:
+      who-to-greet:
+        description: Who to greet in the log
+        required: true
+        default: 'World'
+        type: string
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    name: Say Hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: ${{ inputs.who-to-greet }}
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
